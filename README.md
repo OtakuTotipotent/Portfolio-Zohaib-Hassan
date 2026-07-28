@@ -1,6 +1,6 @@
-# Muhammad Faizan Rafiq
+# Zohaib Hassan
 
-A certified Doctor of Physiotherapy Specialist with 2+ years of experience.
+A certified Software Engineer and IT Specialist with 2+ years of experience.
 
 Currently, two official plugins are available.
 

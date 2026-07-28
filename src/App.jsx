@@ -1,5 +1,5 @@
 function App() {
-  return <div>3D Medical Portfolio Website</div>;
+  return <div>3D Portfolio Website</div>;
 }
 
 export default App;
