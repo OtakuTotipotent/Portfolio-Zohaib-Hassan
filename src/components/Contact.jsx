@@ -7,6 +7,10 @@ import { EarthCanvas } from "./canvas";
 import { sectionWrapper } from "../hoc";
 import { slideIn } from "../utils/motion";
 
+// API KEY (EMAIL JS)
+// SERVICE ID (EMAIL JS)
+// TEMPLATE ID (EMAIL JS)
+
 const Contact = () => {
   const formRef = useRef();
   const [form, setForm] = useState({
@@ -17,9 +21,48 @@ const Contact = () => {
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {};
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
-  const handleSubmit = (e) => {};
+    setForm({ ...form, [name]: value });
+  };
+
+  // CHANGE THE CREDITS HERE TO GET MAILS FROM EMAIL JS
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoading(true);
+    emailjs
+      .send(
+        "SERVICE_ID",
+        "TEMPLATE_ID",
+        {
+          from_name: form.name,
+          to_name: "Zohaib",
+          from_email: form.email,
+          to_email: "ZOHAIB_KI_EMAIL@PROVIDER.COM",
+          message: form.message,
+        },
+        "API_KEY",
+      )
+      .then(
+        () => {
+          setLoading(false);
+          alert("Thank you. I will get back to you as soon as possible.");
+
+          setForm({
+            name: "",
+            email: "",
+            message: "",
+          });
+        },
+        (error) => {
+          setLoading(false);
+          console.log(error);
+
+          alert("Something went wrong.");
+        },
+      );
+  };
 
   return (
     <div className="xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden">
