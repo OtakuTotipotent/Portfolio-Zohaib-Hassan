@@ -129,4 +129,4 @@ const Contact = () => {
   );
 };
 
-export default sectionWrapper(Contact, "");
+export default sectionWrapper(Contact, "contact");
